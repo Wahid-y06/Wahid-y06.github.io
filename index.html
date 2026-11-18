@@ -382,7 +382,7 @@
       <!-- Relay -->
       <article class="card feature reveal" id="relay">
         <div class="copy">
-          <div class="meta"><span>01 · POWER SYSTEMS</span><span class="pill">Completed · Nov 2026</span></div>
+          <div class="meta"><span>01 · POWER SYSTEMS</span><span class="pill">Aug – Oct 2026 · Published Nov 2026</span></div>
           <h3>Protective Relay &amp; SCADA Simulator</h3>
           <p>A distribution-feeder protection simulator that tells a <b style="color:var(--text);font-weight:500">temporary</b> fault (reclose and restore power) from a <b style="color:var(--text);font-weight:500">permanent</b> one (lock out), while only the breaker nearest the fault opens.</p>
           <ul class="points">
@@ -403,7 +403,7 @@
       <!-- Serial analyzer -->
       <article class="card feature flip reveal" id="analyzer">
         <div class="copy">
-          <div class="meta"><span>02 · FPGA / DIGITAL DESIGN</span><span class="pill">Completed · Nov 2026</span></div>
+          <div class="meta"><span>02 · FPGA / DIGITAL DESIGN</span><span class="pill">Sep – Nov 2026</span></div>
           <h3>FPGA Serial Protocol Analyzer</h3>
           <p>A Verilog logic analyzer that listens to <b style="color:var(--text);font-weight:500">UART, SPI and I2C at the same time</b>, decodes them in hardware, timestamps every event and freezes a capture when something goes wrong.</p>
           <ul class="points">
@@ -578,9 +578,9 @@
           <ul><li>Created the rocket design in AutoCAD and supported the team’s rocket construction and avionics programming, collaborating on electronic-system solutions focused on safety and reliability.</li></ul>
 
           <h3>Projects</h3>
-          <div class="entry"><p><strong>FPGA Serial Protocol Analyzer</strong> | <em>Verilog, cocotb, Python, DE10-Lite FPGA</em> | <a href="https://github.com/Wahid-y06/fpga-serial-protocol-analyzer" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Nov. 2026</span></div>
+          <div class="entry"><p><strong>FPGA Serial Protocol Analyzer</strong> | <em>Verilog, cocotb, Python, DE10-Lite FPGA</em> | <a href="https://github.com/Wahid-y06/fpga-serial-protocol-analyzer" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Sep. 2026 – Nov. 2026</span></div>
           <ul><li>Designed a Verilog logic analyzer that decodes UART, SPI (all four modes) and I2C in parallel, with two-flop synchronizers, glitch rejection and a timestamped block-RAM ring buffer.</li><li>Implemented six hardware trigger conditions (framing/parity error, I2C NACK, truncated SPI word, data match) that freeze pre-trigger history for UART readout to a Python decoder; verified with 38 cocotb and host tests.</li></ul>
-          <div class="entry"><p><strong>Protective Relay and SCADA Simulator</strong> | <em>Python, NumPy, pytest</em> | <a href="https://github.com/Wahid-y06/protective-relay-scada-simulator" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Aug. 2026 – Nov. 2026</span></div>
+          <div class="entry"><p><strong>Protective Relay and SCADA Simulator</strong> | <em>Python, NumPy, pytest</em> | <a href="https://github.com/Wahid-y06/protective-relay-scada-simulator" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Aug. 2026 – Oct. 2026</span></div>
           <ul><li>Built a feeder protection simulator with IEC 60255 / IEEE C37.112 inverse-time overcurrent (51), instantaneous (50), auto-reclose (79) and breaker-failure (50BF) functions using an integrating trip timer.</li><li>Coordinated recloser and substation relays with a 0.80 s margin so only the nearest device trips; added a SCADA operator console and millisecond event log, verified by 48 pytest tests.</li></ul>
           <div class="entry"><p><strong>Generator Monitoring and Alarm Dashboard</strong> | <em>Python, Matplotlib, pytest</em> | <a href="https://github.com/Wahid-y06/generator-monitoring-dashboard" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Aug. 2026 – Nov. 2026</span></div>
           <ul><li>Modeled a 500 kVA, 480 V standby generator’s voltage, frequency, current and thermal response to load steps, with warning/critical alarms using hysteresis and on-delay timers to prevent nuisance trips; verified with 34 pytest tests.</li></ul>
