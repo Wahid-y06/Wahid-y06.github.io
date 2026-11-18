@@ -452,21 +452,29 @@
         </div>
       </article>
 
-      <div class="grid">
-        <article class="card reveal" id="vibration">
-          <div class="grow">
-            <div class="meta"><span>04 · FPGA / DSP</span><span class="pill wip">In development</span></div>
-            <h3>FPGA Vibration Monitoring System</h3>
-            <p>A fixed-point Verilog pipeline that detects abnormal machine vibration: DC blocker → 4-band biquad filter bank → band energy → severity alarms → VGA diagnostic display.</p>
-            <ul class="points">
-              <li>The whole filter bank shares <b>a single pipelined multiplier</b> (one DSP block)</li>
-              <li>Alarms with hysteresis and persistence; RTL checked against a Python reference model with cocotb</li>
-            </ul>
-            <div class="tags"><span>Verilog</span><span>Python</span><span>cocotb</span><span>VGA</span></div>
-          </div>
-          <div class="viz" aria-hidden="true"><div class="bars"><div style="height:70%"></div><div style="height:55%"></div><div style="height:90%"></div><div style="height:40%"></div><div style="height:62%"></div></div><div class="bar-labels"><span>overall</span><span>1×</span><span>2×</span><span>harm.</span><span>bearing</span></div></div>
-        </article>
+      <!-- Vibration monitor -->
+      <article class="card feature flip reveal" id="vibration">
+        <div class="copy">
+          <div class="meta"><span>04 · FPGA / DSP</span><span class="pill">Completed · Nov 2026</span></div>
+          <h3>FPGA Vibration Monitoring System</h3>
+          <p>A fixed-point Verilog pipeline that diagnoses machine faults from vibration: it splits the signal into frequency bands, measures the energy in each, raises <b style="color:var(--text);font-weight:500">warning and critical alarms</b>, and draws a live VGA display.</p>
+          <ul class="points">
+            <li>DC blocker and 4-band biquad filter bank (Q2.16 coefficients) sharing <b>one pipelined multiplier</b> for all 20 taps</li>
+            <li>Tells <b>imbalance, misalignment, looseness and bearing defects</b> apart, each in its own band; a healthy machine raises no alarms</li>
+            <li>Alarms with hysteresis and persistence; 640×480 VGA bar graph drawn on the fly, with no frame buffer</li>
+            <li>Verified <b>bit-exact against a Python model</b>: every filter sample, every block's energy, every VGA pixel (15 cocotb + 25 model tests)</li>
+          </ul>
+          <div class="tags"><span>Verilog</span><span>Fixed-point DSP</span><span>cocotb</span><span>Python</span><span>NumPy</span><span>VGA</span><span>DE10-Lite</span></div>
+          <div class="links"><a class="link" href="https://github.com/Wahid-y06/fpga-vibration-monitor" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+        </div>
+        <div class="visual">
+          <div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>vga_frame.png</span></div><img src="assets/vibration-vga.png" alt="VGA frame rendered by the design in simulation for a bearing defect: five bars for overall, 1x, 2x, harmonics and bearing bands with warning and critical markers; the bearing bar and the status strip are red" loading="lazy" width="640" height="480"><div class="bar-labels" style="gap:0;margin:0;padding:2px 6.875% 10px 5.625%;background:#111122"><span>overall</span><span>1×</span><span>2×</span><span>harmonics</span><span>bearing</span></div></div>
+          <div class="blockdiag" aria-label="Pipeline: samples, DC blocker, filter bank, band energy, alarms, VGA display"><span class="b">samples</span><span class="arr">→</span><span class="b">DC block</span><span class="arr">→</span><span class="b hl">4 biquads</span><span class="arr">→</span><span class="b">energy</span><span class="arr">→</span><span class="b hl">alarms</span><span class="arr">→</span><span class="b">VGA</span></div>
+          <p class="caption">A frame produced by the RTL in simulation for a bearing defect: the bearing band is critical, every other band is normal.</p>
+        </div>
+      </article>
 
+      <div class="grid">
         <article class="card reveal" id="motor">
           <div class="grow">
             <div class="meta"><span>05 · EMBEDDED / IoT</span><span class="pill">Completed · Sep 2026</span></div>
@@ -492,7 +500,7 @@
           <div class="viz flow">000 → 100 → 110 → 111 → 011 → 001<small>JOHNSON COUNTER · STATE SEQUENCE</small></div>
         </article>
 
-        <article class="card reveal" id="relay-tcc">
+        <article class="card reveal" id="relay-tcc" style="grid-column:1/-1">
           <div class="grow">
             <div class="meta"><span>01b · COORDINATION STUDY</span><span class="pill">Part of project 01</span></div>
             <h3>Time–Current Coordination</h3>
@@ -576,8 +584,8 @@
           <ul><li>Built a feeder protection simulator with IEC 60255 / IEEE C37.112 inverse-time overcurrent (51), instantaneous (50), auto-reclose (79) and breaker-failure (50BF) functions using an integrating trip timer.</li><li>Coordinated recloser and substation relays with a 0.80 s margin so only the nearest device trips; added a SCADA operator console and millisecond event log, verified by 48 pytest tests.</li></ul>
           <div class="entry"><p><strong>Generator Monitoring and Alarm Dashboard</strong> | <em>Python, Matplotlib, pytest</em> | <a href="https://github.com/Wahid-y06/generator-monitoring-dashboard" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Aug. 2026 – Nov. 2026</span></div>
           <ul><li>Modeled a 500 kVA, 480 V standby generator’s voltage, frequency, current and thermal response to load steps, with warning/critical alarms using hysteresis and on-delay timers to prevent nuisance trips; verified with 34 pytest tests.</li></ul>
-          <div class="entry"><p><strong>FPGA Vibration Monitoring System</strong> | <em>Verilog, Python, cocotb</em> | In Development</p><span>Nov. 2026 – Present</span></div>
-          <ul><li>Developing a fixed-point Verilog pipeline (DC blocker, 4-band biquad filter bank on one shared multiplier, band energy) with hysteresis alarms and a VGA display, verified against a Python reference model.</li></ul>
+          <div class="entry"><p><strong>FPGA Vibration Monitoring System</strong> | <em>Verilog, Python, cocotb</em> | <a href="https://github.com/Wahid-y06/fpga-vibration-monitor" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Nov. 2026</span></div>
+          <ul><li>Designed a fixed-point Verilog pipeline (DC blocker, 4-band biquad filter bank on one shared multiplier, block energy) that diagnoses imbalance, misalignment, looseness and bearing faults with hysteresis alarms and a 640×480 VGA display.</li><li>Verified bit-exact against a Python reference model, from every filter sample to every VGA pixel, with 15 cocotb and 25 model tests.</li></ul>
           <div class="entry"><p><strong>Motor Condition Monitoring System</strong> | <em>C++, ESP32, InfluxDB, Python</em></p><span>Sep. 2026</span></div>
           <ul><li>Developed C++ ESP32 firmware classifying simulated vibration and temperature readings as normal, warning or critical; streamed telemetry over Wi-Fi/HTTPS to InfluxDB and analyzed trends with Pandas and Matplotlib.</li></ul>
           <div class="entry"><p><strong>VHDL Combinational and Sequential Circuits</strong> | <em>VHDL, Quartus II, COE328</em></p><span>Fall 2025</span></div>
