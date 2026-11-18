@@ -3,123 +3,728 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Yahya Wahid is a Computer Engineering student at Toronto Metropolitan University building projects in embedded systems, digital hardware, and software.">
-  <meta name="theme-color" content="#101716">
-  <meta property="og:title" content="Yahya Wahid — Computer Engineering">
-  <meta property="og:description" content="From sensor inputs to software. Explore my embedded systems, digital logic, and software projects.">
+  <meta name="description" content="Yahya Wahid is a Computer Engineering student at Toronto Metropolitan University building FPGA, embedded and power-system projects: a Verilog protocol analyzer, a protective relay simulator and more.">
+  <meta name="theme-color" content="#06080b">
+  <meta property="og:title" content="Yahya Wahid · Computer Engineering">
+  <meta property="og:description" content="FPGA logic, embedded firmware and power-system protection, built and verified end to end.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wahid-y06.github.io/">
   <meta property="og:image" content="https://wahid-y06.github.io/profile.png">
   <link rel="canonical" href="https://wahid-y06.github.io/">
-  <title>Yahya Wahid — Computer Engineering</title>
+  <title>Yahya Wahid · Computer Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{color-scheme:dark;--bg:#101716;--panel:#18211f;--line:#34423c;--text:#f0f1e9;--muted:#b0bbb3;--accent:#d5ef8a;--ink:#172016;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;--sans:Inter,"Segoe UI",Arial,sans-serif}
-    [hidden]{display:none!important}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--sans)}::selection{background:var(--accent);color:var(--ink)}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}a,button,summary{touch-action:manipulation}button:disabled{cursor:wait}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}img,svg{display:block;max-width:100%}h1,h2,h3,p{margin:0}h1,h2,h3{font-weight:600;line-height:1.1;letter-spacing:-.045em}p{color:var(--muted)}.wrap{width:min(1160px,calc(100% - 72px));margin-inline:auto}.eyebrow{font:11px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}.muted{color:var(--muted)}.skip{position:fixed;top:-100px;left:20px;z-index:30;background:var(--accent);color:var(--ink);padding:12px}.skip:focus{top:12px}.arrow{display:inline-block;margin-left:10px}.button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:11px 22px;background:var(--accent);color:var(--ink);border:1px solid var(--accent);border-radius:4px;font-size:14px;font-weight:650;transition:background .18s,transform .18s}.button:hover{background:#e3f6b1;transform:translateY(-2px)}.button.secondary{background:transparent;border-color:var(--line);color:var(--text)}.button.secondary:hover{background:var(--panel)}.text-link{display:inline-block;border-bottom:1px solid var(--line);padding:7px 0;font-size:14px}.text-link:hover{color:var(--accent);border-color:var(--accent)}.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .header{position:sticky;top:0;z-index:20;background:#101716f5;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.nav-row{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}.wordmark{font-size:17px;letter-spacing:-.04em;font-weight:700;white-space:nowrap}.wordmark span{color:var(--accent)}.nav-links{display:flex;align-items:center;gap:29px;font-size:13px;color:var(--muted)}.nav-links a:hover{color:var(--text)}.nav-contact{color:var(--text)!important}.menu-button{display:none;background:none;color:var(--text);border:1px solid var(--line);border-radius:4px;padding:8px 15px;min-height:44px}
-    .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:80px;align-items:center;padding:76px 0 64px}.availability{display:inline-flex;gap:9px;align-items:center;font:11px var(--mono);color:var(--muted);margin-bottom:28px}.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #d5ef8a12}.hero h1{font-size:clamp(54px,6.3vw,82px);margin-bottom:19px}.hero .role{color:var(--accent);font-size:21px;font-weight:450;letter-spacing:-.025em;margin-bottom:19px}.hero .intro{font-size:17px;max-width:510px;margin-bottom:28px}.hero .intro strong{font-weight:500;color:var(--text)}.hero-links{display:flex;gap:24px;margin-top:19px}.portrait{margin:0;position:relative}.portrait-frame{background:#c9c7bf;aspect-ratio:4/4.6;border-radius:4px;position:relative;overflow:hidden}.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;position:relative;z-index:1}.portrait-fallback{position:absolute;inset:0;display:grid;place-items:center;font:80px var(--sans);color:#34423c}.portrait figcaption{display:flex;justify-content:space-between;gap:12px;font:10px var(--mono);color:var(--muted);padding-top:15px;letter-spacing:.05em}.portrait-tag{position:absolute;left:-22px;bottom:58px;z-index:2;background:var(--accent);color:var(--ink);padding:14px 18px;font:11px/1.7 var(--mono);border-radius:3px}.hero-foot{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;gap:24px}.hero-foot span{display:block;font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px}.hero-foot strong{font-size:14px;font-weight:500}
-    .section{padding-top:88px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:36px;margin-bottom:32px}.section-head h2{font-size:clamp(32px,4vw,46px);margin-top:12px}.section-head>p{max-width:330px;font-size:14px}.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:23px}.filters[hidden]{display:none}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:8px 16px;border-radius:30px;font-size:12px;min-height:42px}.filter:hover{color:var(--text)}.filter[aria-pressed=true]{background:var(--accent);color:var(--ink);border-color:var(--accent)}.project[hidden]{display:none}.project{border:1px solid var(--line);border-radius:5px;background:var(--panel);overflow:hidden}.featured{display:grid;grid-template-columns:1fr 1fr;margin-bottom:22px}.project-copy{padding:34px}.project-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:21px;font:10px var(--mono);color:var(--muted)}.status{border:1px solid #63724e;border-radius:3px;padding:4px 7px;letter-spacing:.02em;color:var(--accent);white-space:nowrap}.status.progress{border-color:#756542;color:#e6c88e}.project h3{font-size:29px;margin-bottom:17px}.project p{font-size:14px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.tags span{font:10px var(--mono);padding:5px 8px;border:1px solid var(--line);border-radius:3px;color:#c8d0ca}.project details{margin-top:22px;border-top:1px solid var(--line)}summary{cursor:pointer;padding:15px 0 0;font-size:13px;color:var(--text)}summary:hover{color:var(--accent)}details ul{padding-left:19px;color:var(--muted);font-size:13px}details li+li{margin-top:7px}.diagram{padding:34px;display:flex;flex-direction:column;justify-content:center;background:#14231f;background-image:linear-gradient(#c3e8ac07 1px,transparent 1px),linear-gradient(90deg,#c3e8ac07 1px,transparent 1px);background-size:26px 26px;border-left:1px solid var(--line)}.diagram-label{font:10px var(--mono);letter-spacing:.12em;color:var(--muted);margin-bottom:22px}.pipeline{display:grid;grid-template-columns:1fr 22px 1fr;align-items:center;gap:9px}.node{border:1px solid #527260;background:#172c24;padding:17px 12px;border-radius:3px;font:12px var(--mono);text-align:center}.node small{display:block;font:10px/1.5 var(--sans);color:var(--muted);margin-top:6px}.node.accent{background:var(--accent);border-color:var(--accent);color:var(--ink)}.node.accent small{color:#364529}.connector{color:var(--accent);text-align:center}.pipeline-caption{margin-top:22px!important;font:11px/1.7 var(--mono)!important;color:var(--muted)}.signal{margin-top:28px;border-top:1px solid var(--line);padding-top:15px}.signal svg{width:100%;height:75px}.signal span{font:9px var(--mono);color:var(--muted)}.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.project-grid .project-copy{padding:29px}.project-grid h3{font-size:25px}.project-number{font:12px var(--mono);color:var(--accent)}.project-grid .project-top{margin-bottom:25px}.project-grid .project{display:flex;flex-direction:column}.project-grid .project-copy{flex:1}.mini-diagram{margin:0 29px 26px;border-top:1px solid var(--line);padding-top:20px;font:12px/1.9 var(--mono);color:var(--accent)}.mini-diagram small{display:block;color:var(--muted);font-size:10px;margin-top:8px}
-    .experience-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:70px;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.experience-grid h3{font-size:30px;margin:12px 0}.experience-grid .date{font:12px var(--mono);color:var(--muted)}.experience-grid p{font-size:15px;margin-bottom:15px}.experience-grid ul{padding-left:18px;margin:0;color:var(--muted);font-size:14px}.experience-grid li+li{margin-top:9px}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.about-copy h2{font-size:42px;margin:12px 0 22px}.about-copy p+p{margin-top:16px}.education{margin-top:27px;border-left:2px solid var(--accent);padding-left:17px}.education strong{font-size:14px;font-weight:500}.education p{font-size:12px;margin-top:5px}.skill-row{padding:19px 0;border-bottom:1px solid var(--line)}.skill-row:first-child{padding-top:0}.skill-row h3{font-size:16px;letter-spacing:-.015em;margin-bottom:9px}.skill-row p{font:12px/1.9 var(--mono)}
-    .resume-bar{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:29px 32px;background:var(--panel);border:1px solid var(--line);border-radius:4px}.resume-bar h2{font-size:26px;margin-bottom:8px}.resume-bar p{font-size:13px}.resume-details{margin-top:16px}.resume-details>summary{padding:12px 0}.resume-sheet{background:#fff;color:#17201c;padding:35px;max-width:900px;margin:22px auto 0;border-radius:3px;font:13px/1.55 Arial,sans-serif}.resume-sheet p,.resume-sheet li{color:#27332d}.resume-sheet h2{font-size:26px;letter-spacing:-.02em;margin-bottom:4px}.resume-sheet h3{font-size:12px;letter-spacing:.07em;text-transform:uppercase;border-bottom:1px solid #778078;margin:18px 0 8px;padding-bottom:5px}.resume-sheet h4{font-size:13px;margin:10px 0 3px}.resume-sheet ul{margin:5px 0;padding-left:18px}.resume-sheet a{text-decoration:underline}.resume-sheet .resume-meta{font-size:11px;overflow-wrap:anywhere}.resume-sheet .entry-heading{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.entry-heading span{font-size:11px;white-space:nowrap}.contact{margin-top:90px;padding:58px 0;border-top:1px solid var(--line)}.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.contact h2{font-size:clamp(38px,5vw,58px);margin:14px 0 17px}.contact p{font-size:15px;max-width:430px}.contact-links{display:flex;flex-direction:column;align-items:start;gap:18px}.email{font-size:clamp(17px,2.2vw,25px);letter-spacing:-.035em;overflow-wrap:anywhere}.email:hover{color:var(--accent)}.copy{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:3px;font-size:12px;padding:7px 13px;min-height:40px}.copy:hover{color:var(--accent)}.contact-social{display:flex;flex-wrap:wrap;gap:24px}.footer{border-top:1px solid var(--line);padding:22px 0 30px;display:flex;justify-content:space-between;gap:16px;color:var(--muted);font:10px/1.8 var(--mono)}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-    .resume-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.resume-sheet a.resume-link{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:7px 15px;border:1px solid #56675c;border-radius:4px;background:#eef3e8;color:#17201c;font-size:12px;font-weight:600;text-decoration:none}.resume-sheet a.resume-link:hover{background:#d5ef8a}.resume-sheet a:focus-visible{outline-color:#405c26}@media print{.resume-links{margin-top:5px;gap:12px}.resume-sheet a.resume-link{min-height:0;padding:0;border:0;background:none;font-size:9pt;text-decoration:underline}}
-    @media(min-width:1500px){.hero{padding-top:96px;padding-bottom:80px}}
-    @media(max-width:900px){.wrap{width:calc(100% - 48px)}.nav-links{gap:18px}.hero{gap:40px;grid-template-columns:1.15fr .85fr}.hero h1{font-size:60px}.portrait-tag{left:-12px}.project-copy,.diagram{padding:25px}.pipeline{grid-template-columns:1fr;gap:5px}.connector{transform:rotate(90deg)}.node{padding:10px}.about-grid,.experience-grid{gap:36px}.contact-layout{gap:30px}}
-    @media(max-width:680px){html{scroll-padding-top:84px}.wrap{width:calc(100% - 36px)}.nav-row{min-height:66px;flex-wrap:wrap;gap:0}.menu-button:not([hidden]){display:block}.nav-links{width:100%;flex-wrap:wrap;padding:12px 0 17px;gap:15px 23px}.nav-links.is-collapsed{display:none}.hero{grid-template-columns:1fr;padding:40px 0 35px;gap:35px}.hero h1{font-size:58px}.hero .role{font-size:20px}.hero .intro{font-size:16px}.availability{margin-bottom:22px}.portrait{width:min(100%,360px);margin:auto}.portrait-frame{aspect-ratio:1/1}.portrait-tag{left:12px;bottom:48px;padding:9px 13px}.hero-foot{grid-template-columns:1fr;gap:15px;padding:20px 0}.hero-foot>div{display:flex;align-items:baseline;justify-content:space-between;gap:10px}.hero-foot span{margin:0;font-size:9px}.hero-foot strong{font-size:12px;text-align:right}.section{padding-top:56px}.section-head{display:block;margin-bottom:25px}.section-head>p{margin-top:16px;max-width:none}.featured,.project-grid,.about-grid,.experience-grid,.contact-layout{grid-template-columns:1fr}.diagram{border-left:0;border-top:1px solid var(--line)}.pipeline{grid-template-columns:1fr 20px 1fr;gap:8px}.connector{transform:none}.node{padding:14px 9px}.project h3{font-size:27px}.project-grid{gap:18px}.project-grid .project-copy{padding:25px}.project-top{font-size:9px}.experience-grid{gap:23px}.about-grid{gap:32px}.about-copy h2{font-size:35px}.resume-bar{align-items:start;flex-direction:column;padding:24px}.resume-sheet{padding:23px 17px}.resume-sheet .entry-heading{display:block}.resume-sheet .entry-heading span{display:block;margin-bottom:6px}.contact{margin-top:56px;padding:38px 0}.contact-layout{gap:30px}.footer{flex-direction:column;gap:7px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-    @media print{@page{size:letter;margin:13mm}html{color-scheme:light}body{background:#fff;color:#000}body>header,body>.skip,main>section:not(#resume),main>.hero-foot,body>footer,#resume>.resume-bar,#resume>.resume-details>summary{display:none!important}.wrap{width:100%;max-width:none}main,#resume,.resume-details{margin:0!important;padding:0!important}.resume-details>.resume-sheet{display:block!important}.resume-sheet{margin:0;border:0;padding:0;font-size:10pt;line-height:1.35;max-width:none}.resume-sheet h2{font-size:22pt}.resume-sheet h3{margin-top:12px;font-size:10pt}.resume-sheet h4{font-size:10pt}.resume-sheet .resume-meta,.entry-heading span{font-size:9pt}.resume-sheet h3,.resume-sheet h4{break-after:avoid}.resume-sheet ul{break-inside:avoid}.resume-sheet a{text-decoration:none;color:inherit}.resume-sheet .entry-heading{display:flex}}
+    :root{
+      color-scheme:dark;
+      --bg:#06080b;--bg2:#0b0f14;--panel:#0e131a;--panel2:#121922;
+      --line:#1e2733;--line2:#2b3746;
+      --text:#eef2f6;--muted:#93a1b3;--dim:#64738a;
+      --lime:#c6f36b;--cyan:#5ee1ff;--amber:#ffc46b;--red:#ff6b81;
+      --grad:linear-gradient(100deg,var(--lime),var(--cyan));
+      --display:"Space Grotesk",Inter,"Segoe UI",sans-serif;
+      --sans:Inter,"Segoe UI",Arial,sans-serif;
+      --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+      --r:18px;
+    }
+    *{box-sizing:border-box}[hidden]{display:none!important}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    ::selection{background:var(--lime);color:#0b0f14}
+    a{color:inherit;text-decoration:none}
+    img,svg,canvas{display:block;max-width:100%}
+    h1,h2,h3,h4,p{margin:0}
+    h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.035em;line-height:1.05}
+    p{color:var(--muted)}
+    button{font:inherit;cursor:pointer}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:6px}
+    .wrap{width:min(1180px,calc(100% - 64px));margin-inline:auto}
+    .skip{position:fixed;top:-100px;left:16px;z-index:100;background:var(--lime);color:#000;padding:10px 14px;border-radius:8px}.skip:focus{top:12px}
+    .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .eyebrow{font:500 12px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--lime);display:inline-flex;align-items:center;gap:10px}
+    .eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.7}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+    /* ambient background */
+    .bg-grid{position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%)}
+    .bg-glow{position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(110px);opacity:.33}
+    .bg-glow.a{width:560px;height:560px;background:#3e7b1d;top:-200px;left:-120px}
+    .bg-glow.b{width:620px;height:620px;background:#0d5f7a;top:-140px;right:-220px}
+    .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    /* buttons */
+    .btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:14px;border:1px solid transparent;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,border-color .25s}
+    .btn-primary{background:var(--grad);color:#071008;box-shadow:0 10px 30px -10px #c6f36b80}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px #5ee1ff90}
+    .btn-ghost{border-color:var(--line2);color:var(--text);background:#ffffff05;backdrop-filter:blur(8px)}
+    .btn-ghost:hover{border-color:var(--cyan);transform:translateY(-2px)}
+    .btn svg{width:16px;height:16px}
+
+    /* header */
+    .header{position:fixed;top:14px;left:0;right:0;z-index:50;display:flex;justify-content:center;pointer-events:none}
+    .nav{pointer-events:auto;display:flex;align-items:center;gap:6px;padding:6px 6px 6px 18px;border:1px solid var(--line);border-radius:999px;background:#0b0f14b8;backdrop-filter:blur(18px) saturate(140%);box-shadow:0 10px 40px -20px #000;transition:border-color .3s}
+    .nav.scrolled{border-color:var(--line2)}
+    .logo{font:700 15px var(--display);letter-spacing:-.02em;margin-right:12px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+    .logo i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+    .nav-links{display:flex;gap:2px}
+    .nav-links a{font-size:13px;color:var(--muted);padding:8px 14px;border-radius:999px;transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);background:#ffffff0d}
+    .nav-cta{font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--text);color:#06080b;white-space:nowrap}
+    .nav-cta:hover{background:var(--lime)}
+    .progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--grad);z-index:60}
+
+    /* hero */
+    .hero{position:relative;min-height:100vh;display:grid;align-items:center;padding:130px 0 70px}
+    .hero-inner{display:grid;grid-template-columns:1.3fr .7fr;gap:64px;align-items:center}
+    #scope{position:absolute;inset:0;z-index:-1;width:100%;height:100%;opacity:.55;mask-image:linear-gradient(180deg,transparent,#000 25%,#000 70%,transparent)}
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border:1px solid var(--line2);border-radius:999px;font:12px var(--mono);color:var(--muted);background:#0e131a99;backdrop-filter:blur(8px);margin-bottom:28px}
+    .pulse{position:relative;width:8px;height:8px;border-radius:50%;background:var(--lime)}
+    .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--lime);animation:ping 2s infinite}
+    @keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.2);opacity:0}}
+    .hero h1{font-size:clamp(52px,8.4vw,112px);letter-spacing:-.055em;line-height:.95;margin-bottom:22px}
+    .hero h1 .line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+    .hero h1 .line span{display:inline-block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+    .hero h1 .line:nth-child(2) span{animation-delay:.12s}
+    @keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+    .role{font:500 clamp(16px,1.6vw,19px) var(--mono);color:var(--text);margin-bottom:22px;min-height:1.6em}
+    .role .cursor{display:inline-block;width:9px;height:1.1em;background:var(--cyan);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
+    .intro{font-size:clamp(16px,1.4vw,18px);max-width:560px;margin-bottom:34px}
+    .intro strong{color:var(--text);font-weight:500}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+    .socials{display:flex;gap:10px;margin-top:28px}
+    .icon-btn{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line2);border-radius:50%;color:var(--muted);transition:color .2s,border-color .2s,transform .2s}
+    .icon-btn:hover{color:var(--text);border-color:var(--cyan);transform:translateY(-2px)}
+    .icon-btn svg{width:18px;height:18px}
+
+    .portrait{position:relative;justify-self:end;width:100%;max-width:380px}
+    .portrait-ring{position:relative;padding:2px;border-radius:28px;background:conic-gradient(from var(--a,0deg),var(--lime),var(--cyan),transparent 40%,transparent 60%,var(--lime));animation:spin 8s linear infinite}
+    @property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+    @keyframes spin{to{--a:360deg}}
+    .portrait-frame{border-radius:26px;overflow:hidden;background:#11161d;aspect-ratio:4/4.7;position:relative}
+    .portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:saturate(.95) contrast(1.03)}
+    .portrait-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#06080bcc)}
+    .fallback{position:absolute;inset:0;display:grid;place-items:center;font:700 72px var(--display);color:var(--line2)}
+    .chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid var(--line2);background:#0b0f14d9;backdrop-filter:blur(14px);font:12px/1.35 var(--mono);color:var(--text);box-shadow:0 20px 40px -20px #000;animation:float 6s ease-in-out infinite}
+    .chip small{display:block;color:var(--dim);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    .chip b{font-weight:500}
+    .chip .ico{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#c6f36b1a;color:var(--lime);font-size:14px}
+    .chip.c1{left:-46px;top:16%}
+    .chip.c2{right:-30px;bottom:14%;animation-delay:-3s}
+    .chip.c2 .ico{background:#5ee1ff1a;color:var(--cyan)}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px;border:1px solid var(--line);border-radius:var(--r);background:#0b0f1499;backdrop-filter:blur(10px);overflow:hidden}
+    .stat{padding:24px 26px;border-right:1px solid var(--line)}
+    .stat:last-child{border-right:0}
+    .stat strong{display:block;font:600 clamp(30px,3.4vw,42px)/1 var(--display);letter-spacing:-.04em;margin-bottom:8px}
+    .stat>span{font:12px var(--mono);color:var(--muted)}
+
+    /* marquee */
+    .marquee{border-block:1px solid var(--line);padding:18px 0;overflow:hidden;margin-top:20px;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+    .marquee-track{display:flex;gap:44px;width:max-content;animation:scroll 40s linear infinite}
+    .marquee span{font:500 14px var(--mono);color:var(--dim);white-space:nowrap;display:flex;align-items:center;gap:44px}
+    .marquee span::after{content:"◆";font-size:8px;color:var(--line2)}
+    @keyframes scroll{to{transform:translateX(-50%)}}
+
+    /* sections */
+    .section{padding:120px 0 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:46px}
+    .section-head h2{font-size:clamp(38px,5vw,64px);margin-top:16px}
+    .section-head p{max-width:380px;font-size:15px}
+
+    /* cards */
+    .card{position:relative;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,var(--panel2),var(--panel));overflow:hidden;transition:border-color .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+    .card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),#5ee1ff14,transparent 45%)}
+    .card:hover{border-color:var(--line2)}
+    .card:hover::before{opacity:1}
+    .meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;font:12px var(--mono);color:var(--dim)}
+    .pill{display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:999px;font:500 11px var(--mono);border:1px solid #c6f36b40;color:var(--lime);background:#c6f36b0d;white-space:nowrap}
+    .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+    .pill.wip{border-color:#ffc46b40;color:var(--amber);background:#ffc46b0d}
+    .pill.course{border-color:#5ee1ff40;color:var(--cyan);background:#5ee1ff0d}
+    .card h3{font-size:clamp(26px,2.6vw,34px);margin-bottom:14px}
+    .card p{font-size:15px}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+    .tags span{font:12px var(--mono);padding:5px 10px;border-radius:8px;background:#ffffff08;border:1px solid var(--line);color:#c4cfdc}
+    .points{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+    .points li{position:relative;padding-left:22px;font-size:14px;color:var(--muted)}
+    .points li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--grad);transform:rotate(45deg)}
+    .points b{color:var(--text);font-weight:500}
+    .links{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}
+    .link{display:inline-flex;align-items:center;gap:8px;font:500 13px var(--mono);color:var(--text);padding-bottom:3px;border-bottom:1px solid var(--line2);transition:color .2s,border-color .2s,gap .2s}
+    .link:hover{color:var(--lime);border-color:var(--lime);gap:12px}
+
+    .feature{display:grid;grid-template-columns:1fr 1.08fr;margin-bottom:22px}
+    .feature.flip{grid-template-columns:1.08fr 1fr}
+    .feature.flip .copy{order:2}
+    .feature .copy{padding:42px}
+    .feature .visual{position:relative;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:14px;background:radial-gradient(circle at 70% 20%,#5ee1ff12,transparent 60%),#0a0e13;border-left:1px solid var(--line)}
+    .feature.flip .visual{border-left:0;border-right:1px solid var(--line)}
+    .screen{border-radius:12px;overflow:hidden;border:1px solid var(--line2);background:#fff;box-shadow:0 30px 60px -30px #000;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+    .card:hover .screen{transform:translateY(-4px) scale(1.01)}
+    .screen img{width:100%;height:auto}
+    .screen-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#121922;border-bottom:1px solid var(--line2);font:11px var(--mono);color:var(--dim)}
+    .screen-bar i{width:9px;height:9px;border-radius:50%;background:#2b3746}
+    .screen-bar i:first-child{background:#ff6b81}.screen-bar i:nth-child(2){background:#ffc46b}.screen-bar i:nth-child(3){background:#c6f36b}
+    .screen-bar span{margin-left:8px}
+    .caption{font:11px/1.6 var(--mono);color:var(--dim)}
+    .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    .terminal{border-radius:12px;border:1px solid var(--line2);background:#070a0e;box-shadow:0 30px 60px -30px #000;overflow:hidden}
+    .terminal pre{margin:0;padding:18px 18px 20px;font:12.5px/1.75 var(--mono);color:#b9c6d6;overflow-x:auto}
+    .terminal .p{color:var(--lime)}.terminal .c{color:var(--dim)}.terminal .u{color:var(--cyan)}.terminal .s{color:#c7a6ff}.terminal .i{color:var(--amber)}
+    .terminal .hit{display:inline-block;width:100%;background:#ff6b8118;color:#ffb3bf;border-left:2px solid var(--red);margin-left:-18px;padding-left:16px}
+    .blockdiag{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:11px var(--mono)}
+    .blockdiag .b{padding:8px 10px;border:1px solid var(--line2);border-radius:8px;background:#0e131a;color:#c4cfdc}
+    .blockdiag .b.hl{border-color:#c6f36b66;color:var(--lime);background:#c6f36b0d}
+    .blockdiag .arr{color:var(--dim)}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .grid .card{padding:34px;display:flex;flex-direction:column}
+    .grid .card .grow{flex:1}
+    .viz{margin-top:24px;border-top:1px solid var(--line);padding-top:20px}
+    .bars{display:flex;align-items:end;gap:10px;height:90px}
+    .bars div{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--lime),#c6f36b30);transform-origin:bottom;animation:eq 2.8s ease-in-out infinite}
+    .bars div:nth-child(2){animation-delay:-.6s}.bars div:nth-child(3){animation-delay:-1.2s;background:linear-gradient(180deg,var(--amber),#ffc46b30)}.bars div:nth-child(4){animation-delay:-1.8s}.bars div:nth-child(5){animation-delay:-2.3s;background:linear-gradient(180deg,var(--cyan),#5ee1ff30)}
+    @keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+    .bar-labels{display:flex;gap:10px;margin-top:8px}.bar-labels span{flex:1;text-align:center;font:10px var(--mono);color:var(--dim)}
+    .flow{font:12px/1.9 var(--mono);color:var(--lime)}
+    .flow small{display:block;color:var(--dim);font-size:10px;letter-spacing:.08em}
+    .wave svg{width:100%;height:70px}
+    .viz .screen{background:#fff}.viz .screen img{max-height:250px;width:100%;object-fit:contain}
+    body:not(.no-js) .resume-details>summary{display:none}
+    .wave path.trace{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 4s ease-in-out infinite}
+    @keyframes draw{60%,100%{stroke-dashoffset:0}}
+
+    .coursework{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:22px}
+    .coursework .card{padding:26px 30px}
+    .coursework h3{font-size:22px;margin-bottom:8px}
+    .coursework p{font-size:14px}
+
+    /* experience */
+    .timeline{position:relative;padding-left:34px}
+    .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--lime),var(--line) 80%)}
+    .t-item{position:relative}
+    .t-item::before{content:"";position:absolute;left:-33px;top:40px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--lime);box-shadow:0 0 0 5px #c6f36b14}
+    .t-item .card{padding:36px;display:grid;grid-template-columns:.8fr 1.2fr;gap:44px}
+    .t-item h3{font-size:30px;margin:12px 0 10px}
+    .t-date{font:13px var(--mono);color:var(--muted)}
+
+    /* about */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    .about h2{font-size:clamp(36px,4.4vw,56px);margin:16px 0 24px}
+    .about p+p{margin-top:16px}
+    .edu{margin-top:32px;padding:22px 24px;border-radius:14px;border:1px solid var(--line);background:var(--panel);display:flex;gap:16px;align-items:center}
+    .edu .ico{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#071008;font:700 15px var(--display)}
+    .edu strong{display:block;font-weight:500}
+    .edu span{font-size:13px;color:var(--muted)}
+    .skills{display:grid;gap:14px}
+    .skill{padding:22px 24px}
+    .skill h3{font-size:17px;letter-spacing:-.01em;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .skill h3 em{font:normal 11px var(--mono);color:var(--dim)}
+    .skill .tags{margin-top:0}
+
+    /* resume */
+    .resume-card{padding:34px 38px;display:flex;justify-content:space-between;align-items:center;gap:28px}
+    .resume-card h2{font-size:clamp(28px,3vw,38px);margin:12px 0 8px}
+    .resume-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .resume-details{margin-top:18px}
+    .resume-details>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;font:500 13px var(--mono);color:var(--muted);padding:10px 0}
+    .resume-details>summary::-webkit-details-marker{display:none}
+    .resume-details>summary::before{content:"+";display:grid;place-items:center;width:22px;height:22px;border-radius:6px;border:1px solid var(--line2);color:var(--lime)}
+    .resume-details[open]>summary::before{content:"−"}
+    .resume-details>summary:hover{color:var(--text)}
+    .resume-sheet{background:#fff;color:#17201c;padding:44px 48px;max-width:900px;margin:18px auto 0;border-radius:6px;font:13px/1.55 Arial,Helvetica,sans-serif;box-shadow:0 40px 80px -40px #000}
+    .resume-sheet p,.resume-sheet li{color:#27332d}
+    .resume-sheet h2{font:700 28px/1.1 Georgia,"Times New Roman",serif;letter-spacing:0;text-align:center;color:#111}
+    .resume-sheet .sub{text-align:center;margin-top:4px}
+    .resume-sheet h3{font:700 13px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#111;border-bottom:1px solid #444;margin:18px 0 8px;padding-bottom:4px}
+    .resume-sheet h4{font:700 13px Arial,sans-serif;color:#111}
+    .resume-sheet ul{margin:4px 0 10px;padding-left:18px}
+    .resume-sheet a{color:#17201c;text-decoration:underline}
+    .resume-sheet .resume-meta{font-size:12px;text-align:center;margin-top:6px;overflow-wrap:anywhere}
+    .resume-sheet .entry{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:8px}
+    .resume-sheet .entry span{font-size:12px;white-space:nowrap}
+    .resume-sheet .entry.sub2{margin-top:0}
+    .resume-sheet .entry.sub2 em,.resume-sheet .tech{font-style:italic;font-size:12px;color:#3a463f}
+
+    /* contact */
+    .contact{margin:130px 0 0;position:relative;border:1px solid var(--line);border-radius:28px;overflow:hidden;padding:clamp(40px,7vw,80px);text-align:center;background:radial-gradient(ellipse at 50% 0%,#5ee1ff1c,transparent 60%),radial-gradient(ellipse at 50% 100%,#c6f36b14,transparent 60%),var(--panel)}
+    .contact h2{font-size:clamp(40px,6.4vw,84px);letter-spacing:-.05em;margin:20px 0 18px}
+    .contact p{max-width:520px;margin:0 auto 32px;font-size:16px}
+    .email-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+    .footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:34px 0 44px;color:var(--dim);font:12px var(--mono)}
+    .footer a:hover{color:var(--text)}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+    .reveal.in{opacity:1;transform:none}
+    .no-js .reveal{opacity:1;transform:none}
+
+    @media(max-width:1000px){
+      .hero-inner{grid-template-columns:1fr;gap:56px}
+      .portrait{justify-self:center;max-width:340px}
+      .chip.c1{left:-18px}.chip.c2{right:-14px}
+      .feature,.feature.flip{grid-template-columns:1fr}
+      .feature.flip .copy{order:0}
+      .feature .visual,.feature.flip .visual{border:0;border-top:1px solid var(--line)}
+      .t-item .card{grid-template-columns:1fr;gap:18px}
+      .about{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      .wrap{width:calc(100% - 32px)}
+      .nav-links{display:none}
+      .nav{padding-left:16px}
+      .hero{padding-top:110px;min-height:auto}
+      .stats{grid-template-columns:1fr 1fr}
+      .stat:nth-child(2){border-right:0}
+      .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .stat{padding:18px}
+      .section{padding-top:88px}
+      .section-head{display:block}
+      .section-head p{margin-top:16px}
+      .grid,.coursework,.thumbs{grid-template-columns:1fr}
+      .feature .copy,.grid .card{padding:26px}
+      .feature .visual{padding:18px}
+      .resume-card{flex-direction:column;align-items:flex-start;padding:26px}
+      .resume-sheet{padding:26px 18px}
+      .resume-sheet .entry{display:block}
+      .resume-sheet .entry span{display:block}
+      .timeline{padding-left:26px}.t-item::before{left:-25px}
+      .t-item .card{padding:26px}
+      .chip{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+    @media print{
+      @page{size:letter;margin:12mm}
+      html{color-scheme:light;background:#fff!important}
+      body{background:#fff!important;color:#000}
+      body>*:not(main),main>*:not(.wrap),main>.wrap>*:not(#resume),#resume>.resume-card,#resume>.eyebrow,.resume-details>summary,.bg-grid,.bg-glow,.noise,.progress{display:none!important}
+      .wrap{width:100%;max-width:none}
+      main,#resume,.resume-details{margin:0!important;padding:0!important}
+      .reveal{opacity:1!important;transform:none!important}
+      .resume-sheet{display:block!important;margin:0;padding:0;box-shadow:none;font-size:10pt;line-height:1.35;max-width:none}
+      .resume-sheet h2{font-size:20pt}
+      .resume-sheet h3{margin-top:10px;font-size:10pt}
+      .resume-sheet h4,.resume-sheet .entry span{font-size:10pt}
+      .resume-sheet h3,.resume-sheet h4{break-after:avoid}
+      .resume-sheet ul{break-inside:avoid}
+      .resume-sheet a{text-decoration:none}
+      .resume-sheet .entry{display:flex}
+    }
   </style>
 </head>
-<body>
+<body class="no-js">
 <a href="#main" class="skip">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow a" aria-hidden="true"></div>
+<div class="bg-glow b" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+
 <header class="header">
-  <div class="wrap nav-row">
-    <a class="wordmark" href="#hero" aria-label="Yahya Wahid, home">Yahya Wahid</a>
-    <button class="menu-button" id="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button>
-    <nav class="nav-links" id="navigation" aria-label="Main navigation">
-      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#resume">Résumé</a><a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
-    </nav>
-  </div>
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a class="logo" href="#hero" aria-label="Yahya Wahid, home"><i aria-hidden="true"></i>Yahya Wahid</a>
+    <div class="nav-links">
+      <a href="#projects">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#resume">Résumé</a>
+    </div>
+    <a class="nav-cta" href="#contact">Let’s talk</a>
+  </nav>
 </header>
-<main id="main" class="wrap">
+
+<main id="main">
   <section class="hero" id="hero" aria-labelledby="hero-title">
-    <div>
-      <div class="availability"><span class="dot" aria-hidden="true"></span> OPEN TO CO-OP &amp; INTERNSHIP ROLES</div>
-      <h1 id="hero-title">Yahya Wahid<span style="color:var(--accent)">.</span></h1>
-      <p class="role">Computer Engineering Student</p>
-      <p class="intro">From sensor inputs to software. I’m studying at <strong>Toronto Metropolitan University</strong> and building projects in embedded systems, digital hardware, and data analysis.</p>
-      <div class="actions"><a class="button" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button secondary" href="#resume">View résumé <span aria-hidden="true">↗</span></a></div>
-      <div class="hero-links"><a class="text-link" href="https://github.com/Wahid-y06" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.linkedin.com/in/yahya-wahid-667484321" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div>
+    <canvas id="scope" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-inner">
+        <div>
+          <div class="badge"><span class="pulse" aria-hidden="true"></span>Open to co-op &amp; internship roles</div>
+          <h1 id="hero-title"><span class="line"><span>Yahya</span></span><span class="line"><span class="grad">Wahid.</span></span></h1>
+          <p class="role" aria-label="Computer Engineering student working on FPGA design, embedded systems and power-system protection"><span id="typed">Computer Engineering @ TMU</span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="intro">I build systems from the signal up: <strong>real-time ROS2 motor-control firmware</strong>, <strong>Verilog that decodes live serial buses</strong>, and <strong>protective relays that know when to trip</strong>. Every project is tested and documented.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">See my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+            <a class="btn btn-ghost" href="#resume">View résumé</a>
+          </div>
+          <div class="socials">
+            <a class="icon-btn" href="https://github.com/Wahid-y06" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+            <a class="icon-btn" href="https://www.linkedin.com/in/yahya-wahid-667484321" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg></a>
+            <a class="icon-btn" href="mailto:yahyavahid2000@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          </div>
+        </div>
+        <figure class="portrait" style="margin:0">
+          <div class="portrait-ring"><div class="portrait-frame"><span class="fallback" aria-hidden="true">YW</span><img id="portrait" src="profile.png" alt="Portrait of Yahya Wahid" width="1254" height="1254" fetchpriority="high"></div></div>
+          <div class="chip c1"><span class="ico" aria-hidden="true">⌁</span><span><small>Verified</small><b>120 automated tests</b></span></div>
+          <div class="chip c2"><span class="ico" aria-hidden="true">◈</span><span><small>Based in</small><b>Toronto, ON</b></span></div>
+        </figure>
+      </div>
+      <div class="stats reveal" aria-label="At a glance">
+        <div class="stat"><strong><span data-count="120">120</span></strong><span>automated tests passing</span></div>
+        <div class="stat"><strong><span data-count="3">3</span> <span class="grad">protocols</span></strong><span>decoded in Verilog: UART · SPI · I2C</span></div>
+        <div class="stat"><strong><span data-count="4">4</span> <span class="grad">protection functions</span></strong><span>ANSI 50 · 51 · 79 · 50BF modelled</span></div>
+        <div class="stat"><strong>’29</strong><span>B.Eng. Computer Eng., TMU</span></div>
+      </div>
     </div>
-    <figure class="portrait">
-      <div class="portrait-frame"><span class="portrait-fallback" aria-hidden="true">YW</span><img id="portrait" src="profile.png" alt="Portrait of Yahya Wahid" width="1254" height="1254" fetchpriority="high"></div>
-      <div class="portrait-tag">HARDWARE × SOFTWARE<br>Curious about the whole system.</div>
-      <figcaption><span>BASED IN TORONTO, ON</span><span>B.ENG. ’29</span></figcaption>
-    </figure>
   </section>
-  <div class="hero-foot" aria-label="At a glance"><div><span>01 / Education</span><strong>TMU · Computer Engineering</strong></div><div><span>02 / Focus</span><strong>Embedded systems &amp; digital logic</strong></div><div><span>03 / Languages</span><strong>C / C++ · Python · Java · VHDL</strong></div></div>
-  <section class="section" id="projects" aria-labelledby="projects-title">
-    <div class="section-head"><div><p class="eyebrow">01 / Selected work</p><h2 id="projects-title">Ideas, built into systems.</h2></div><p>Independent projects and coursework connecting hardware, code, and the data between them.</p></div>
-    <div class="filters" id="filters" role="group" aria-label="Filter projects" hidden><button class="filter" data-filter="all" aria-pressed="true">All work</button><button class="filter" data-filter="embedded" aria-pressed="false">Embedded &amp; hardware</button><button class="filter" data-filter="software" aria-pressed="false">Software</button><button class="filter" data-filter="progress" aria-pressed="false">In progress</button></div>
-    <p id="filter-status" class="sr-only" aria-live="polite"></p>
-    <article class="project featured" data-category="embedded" id="motor">
-      <div class="project-copy"><div class="project-top"><span>FEATURED / SEPTEMBER 2026</span><span class="status">Completed · Simulation</span></div><h3>Motor Condition<br>Monitoring System</h3><p>A simulated ESP32 monitoring system that turns vibration and temperature inputs into condition alerts and readable trends.</p><div class="tags"><span>C++</span><span>ESP32 / Wokwi</span><span>InfluxDB</span><span>Python</span></div><details><summary>What I built</summary><ul><li>Wrote C++ firmware to process simulated sensor inputs and classify normal, warning, and critical conditions using thresholds.</li><li>Sent telemetry over Wi-Fi/HTTPS to InfluxDB for time-series storage.</li><li>Used Pandas and Matplotlib to analyze the data and visualize trends.</li></ul></details></div>
-      <div class="diagram" role="img" aria-label="System overview: simulated vibration and temperature inputs flow through ESP32 firmware to InfluxDB, then Python analysis."><div class="diagram-label">THE SYSTEM / DATA FLOW</div><div class="pipeline"><div class="node">Sensor inputs<small>Vibration + temperature</small></div><span class="connector" aria-hidden="true">→</span><div class="node accent">ESP32 / C++<small>Threshold-based detection</small></div><div class="node">InfluxDB<small>Time-series storage</small></div><span class="connector" aria-hidden="true">→</span><div class="node">Python<small>Pandas + Matplotlib</small></div></div><p class="pipeline-caption">Sensor inputs → firmware → HTTPS → database → analysis</p><div class="signal" aria-hidden="true"><svg viewBox="0 0 400 70" fill="none"><path d="M0 35H400" stroke="#34423c" stroke-dasharray="3 7"/><path d="M0 35H22L29 28L36 44L44 22L53 48L62 35H98L108 17L119 54L130 27L139 40L146 35H187L195 30L202 42L210 13L220 58L230 23L240 42L250 35H286L295 25L305 46L315 30L325 35H400" stroke="#d5ef8a" stroke-width="2"/></svg><span>ILLUSTRATIVE SIGNAL · NOT MEASURED RESULTS</span></div></div>
-    </article>
-    <div class="project-grid">
-      <article class="project" data-category="embedded"><div class="project-copy"><div class="project-top"><span class="project-number">02 / DIGITAL LOGIC</span><span class="status">Coursework · 2026</span></div><h3>VHDL Combinational<br>&amp; Sequential Circuits</h3><p>Modular logic circuits built in VHDL and Intel Quartus II, with waveform simulation to examine their behavior.</p><div class="tags"><span>VHDL</span><span>Quartus II</span><span>ModelSim</span><span>COE328</span></div><details><summary>Explore the implementation</summary><ul><li>Implemented multiplexers, decoders, encoders, and a 3-bit Johnson counter.</li><li>Examined sequential behavior and counter state transitions with waveform simulation.</li><li>Combined VHDL modules with block-diagram designs.</li></ul></details></div><div class="mini-diagram" aria-label="Illustrative Johnson counter state sequence">000 → 100 → 110 → 111 → 011 → 001<small>JOHNSON COUNTER / ILLUSTRATIVE STATE SEQUENCE</small></div></article>
-      <article class="project" data-category="software"><div class="project-copy"><div class="project-top"><span class="project-number">03 / SOFTWARE DESIGN</span><span class="status">Coursework · 2026</span></div><h3>Object-Oriented<br>Software Design</h3><p>Java coursework focused on organizing programs into classes and planning their relationships with UML.</p><div class="tags"><span>Java</span><span>UML</span><span>OOP</span><span>COE528</span></div><details><summary>Explore the implementation</summary><ul><li>Developed object-oriented Java programs for software design assignments.</li><li>Used UML models to plan class structures before implementation.</li><li>Practiced organizing responsibilities and relationships between components.</li></ul></details></div><div class="mini-diagram">Model → Implement → Refine<small>FROM CLASS RELATIONSHIPS TO WORKING CODE</small></div></article>
-      <article class="project" data-category="software"><div class="project-copy"><div class="project-top"><span class="project-number">04 / ALGORITHMS</span><span class="status">Coursework · 2026</span></div><h3>Algorithms &amp;<br>Data Structures</h3><p>C and C++ coursework exploring data structures, algorithmic complexity, and memory management.</p><div class="tags"><span>C / C++</span><span>Data structures</span><span>COE428</span></div><details><summary>Explore the implementation</summary><ul><li>Applied algorithms and data structures to university programming problems.</li><li>Worked with trees, heaps, and dynamic tables.</li><li>Considered runtime complexity and pointer-based memory management.</li></ul></details></div></article>
-      <article class="project" data-category="software progress"><div class="project-copy"><div class="project-top"><span class="project-number">05 / POWER SYSTEMS</span><span class="status progress">In progress</span></div><h3>Protective Relay<br>&amp; SCADA Simulator</h3><p>A Python protection simulator in development, exploring fault detection and supervisory control.</p><div class="tags"><span>Python</span><span>Simulation</span><span>Since Aug. 2026</span></div><details><summary>Planned scope</summary><ul><li>Instantaneous and time-overcurrent protection logic.</li><li>Virtual breaker control and timestamped event logging.</li><li>A SCADA-style interface to inspect simulated system states.</li></ul></details></div></article>
-      <article class="project" data-category="software progress"><div class="project-copy"><div class="project-top"><span class="project-number">06 / MONITORING</span><span class="status progress">In progress</span></div><h3>Generator Monitoring<br>&amp; Alarm Dashboard</h3><p>A Python simulation in development for displaying generator measurements, operating trends, and alarms.</p><div class="tags"><span>Python</span><span>Data visualization</span><span>Since Aug. 2026</span></div><details><summary>Planned scope</summary><ul><li>Displays for electrical measurements and temperature readings.</li><li>Operating trends and threshold-based alarms.</li><li>Diagnostic logs for reviewing simulated operating conditions.</li></ul></details></div></article>
-    </div>
-  </section>
-  <section class="section" id="experience" aria-labelledby="experience-title"><div class="section-head"><div><p class="eyebrow">02 / Team experience</p><h2 id="experience-title">Engineering together.</h2></div></div><div class="experience-grid"><div><p class="eyebrow">MetRocketry</p><h3>Seasonal<br>Avionics Engineer</h3><span class="date">Fall 2025</span></div><div><p>Contributed to a student rocket project across CAD design, construction, and programming.</p><ul><li>Created the rocket design in AutoCAD.</li><li>Helped the team build and program the rocket.</li><li>Worked across mechanical design and onboard electronics as part of the broader system.</li></ul><div class="tags"><span>AutoCAD</span><span>Hardware integration</span><span>Embedded programming</span><span>Team collaboration</span></div></div></div></section>
-  <section class="section about-grid" id="about" aria-labelledby="about-title"><div class="about-copy"><p class="eyebrow">03 / About me</p><h2 id="about-title">Interested in how<br>it all connects.</h2><p>I’m a Computer Engineering student at Toronto Metropolitan University, with project experience spanning digital logic, embedded firmware, and software development.</p><p>I enjoy working across the system: understanding an input, writing the code that processes it, and making the result useful. I’m looking for opportunities to keep learning through hands-on engineering work.</p><div class="education"><strong>B.Eng. in Computer Engineering</strong><p>Toronto Metropolitan University<br>2024–2029 · Expected graduation: May 2029</p></div></div><div aria-label="Technical skills"><div class="skill-row"><h3>Programming</h3><p>C / C++ · Python · Java · VHDL</p></div><div class="skill-row"><h3>Hardware &amp; embedded systems</h3><p>ESP32 simulation · Wokwi · Digital logic<br>FPGA design · State machines</p></div><div class="skill-row"><h3>Data &amp; telemetry</h3><p>InfluxDB · Pandas · Matplotlib<br>Sensor-data analysis · Fault detection</p></div><div class="skill-row"><h3>Design &amp; verification</h3><p>Intel Quartus II · ModelSim · AutoCAD<br>Waveform simulation · UML · OOP</p></div></div></section>
-  <section class="section" id="resume" aria-labelledby="resume-title"><div class="resume-bar"><div><h2 id="resume-title">The résumé version.</h2><p>Education, experience, and projects in a printable format.</p></div><button class="button" id="print-resume" hidden>Print / Save as PDF <span aria-hidden="true">↗</span></button></div><details class="resume-details" id="resume-details"><summary>Read my résumé</summary><article class="resume-sheet" id="resume-sheet" aria-label="Yahya Wahid résumé"><h2>Yahya Wahid</h2><p>Computer Engineering Student</p><p class="resume-meta"><a href="mailto:yahyavahid2000@gmail.com">yahyavahid2000@gmail.com</a> · <a href="tel:+16478071214">647-807-1214</a> · Toronto, ON<br><span class="resume-links"><a class="resume-link" href="https://wahid-y06.github.io/" target="_blank" rel="noopener noreferrer">Portfolio</a><a class="resume-link" href="https://github.com/Wahid-y06" target="_blank" rel="noopener noreferrer">GitHub</a><a class="resume-link" href="https://www.linkedin.com/in/yahya-wahid-667484321" target="_blank" rel="noopener noreferrer">LinkedIn</a></span></p><h3>Summary</h3><p>Computer Engineering student with experience in digital hardware, embedded simulation, and software development. Uses C/C++, Python, Java, and VHDL across coursework and independent projects. Seeking a co-op or internship opportunity.</p><h3>Education</h3><div class="entry-heading"><strong>Toronto Metropolitan University</strong><span>2024–2029</span></div><p>Bachelor of Engineering in Computer Engineering · Expected May 2029</p><p class="resume-meta">Coursework: Algorithms and Data Structures, Object-Oriented Analysis and Design, Microprocessor Systems, Digital Systems, Software Systems, Electronic Circuits, Signals and Systems.</p><h3>Experience</h3><div class="entry-heading"><strong>Seasonal Avionics Engineer · MetRocketry</strong><span>Fall 2025</span></div><ul><li>Created the rocket design in AutoCAD and helped build and program the rocket.</li></ul><h3>Projects</h3><div class="entry-heading"><h4>Motor Condition Monitoring System</h4><span>Sep. 2026 · Completed</span></div><ul><li>Developed a simulated ESP32 system in C++ using vibration and temperature inputs with threshold-based condition classification.</li><li>Sent telemetry over Wi-Fi/HTTPS to InfluxDB and visualized trends using Python, Pandas, and Matplotlib.</li></ul><div class="entry-heading"><h4>VHDL Combinational &amp; Sequential Circuits</h4><span>Jan.–Mar. 2026</span></div><ul><li>Implemented multiplexers, decoders, encoders, and a 3-bit Johnson counter using VHDL and Quartus II.</li><li>Used waveform simulation to examine sequential behavior and combined VHDL modules with block-diagram designs.</li></ul><div class="entry-heading"><h4>Object-Oriented Software Design · Java / UML</h4><span>Jan.–Apr. 2026</span></div><p>Developed Java programs and used UML modeling to plan software designs.</p><div class="entry-heading"><h4>Algorithms &amp; Data Structures · C/C++</h4><span>Jan.–Apr. 2026</span></div><p>Applied algorithms and data structures to university programming problems.</p><h4>Projects in development · Python · Since August 2026</h4><p>Protective Relay &amp; SCADA Simulator: planned fault detection, virtual breaker control, event logging, and interface. Generator Monitoring &amp; Alarm Dashboard: planned measurements, temperature displays, operating trends, and alarms.</p><h3>Technical skills</h3><p><strong>Programming:</strong> C, C++, Python, Java, VHDL, algorithms and data structures, OOP, UML.<br><strong>Tools:</strong> Quartus II, ModelSim, AutoCAD, ESP32 simulation, Wokwi, InfluxDB, Pandas, Matplotlib.<br><strong>Hardware:</strong> FPGA design, combinational and sequential logic, waveform simulation.</p></article></details></section>
-  <section class="contact" id="contact" aria-labelledby="contact-title"><div class="contact-layout"><div><p class="eyebrow">04 / Get in touch</p><h2 id="contact-title">Let’s build<br>something useful.</h2><p>Open to co-op and internship opportunities in embedded systems, digital hardware, and software engineering.</p></div><div class="contact-links"><a class="email" href="mailto:yahyavahid2000@gmail.com">yahyavahid2000@gmail.com <span aria-hidden="true">↗</span></a><button class="copy" id="copy-email" hidden>Copy email</button><span class="sr-only" id="copy-status" role="status"></span><div class="contact-social"><a class="text-link" href="https://www.linkedin.com/in/yahya-wahid-667484321" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="text-link" href="https://github.com/Wahid-y06" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="text-link" href="tel:+16478071214">647-807-1214</a></div></div></div></section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"><span>Verilog</span><span>VHDL</span><span>SystemVerilog</span><span>C / C++</span><span>ROS2</span><span>NVIDIA Jetson</span><span>Python</span><span>cocotb</span><span>Icarus Verilog</span><span>Quartus II</span><span>ModelSim</span><span>DE10-Lite FPGA</span><span>ESP32</span><span>InfluxDB</span><span>NumPy</span><span>Matplotlib</span><span>pytest</span><span>Linux</span><span>Java</span><span>Assembly</span></div></div>
+
+  <div class="wrap">
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-head reveal"><div><span class="eyebrow">01 · Selected work</span><h2 id="projects-title">Built, tested,<br><span class="grad">and delivered.</span></h2></div><p>Hardware and software projects with real verification behind them. Every plot and capture below comes from my own code.</p></div>
+
+      <!-- Relay -->
+      <article class="card feature reveal" id="relay">
+        <div class="copy">
+          <div class="meta"><span>01 · POWER SYSTEMS</span><span class="pill">Completed · Nov 2026</span></div>
+          <h3>Protective Relay &amp; SCADA Simulator</h3>
+          <p>A distribution-feeder protection simulator that tells a <b style="color:var(--text);font-weight:500">temporary</b> fault (reclose and restore power) from a <b style="color:var(--text);font-weight:500">permanent</b> one (lock out), while only the breaker nearest the fault opens.</p>
+          <ul class="points">
+            <li><b>IEC 60255 and IEEE C37.112</b> inverse-time curves with an integrating timer, so trip time stays correct when fault current changes</li>
+            <li>Auto-reclose (79) and breaker-failure (50BF) logic, with a <b>0.80 s coordination margin</b> between recloser and substation</li>
+            <li>SCADA operator console and a millisecond sequence-of-events log</li>
+            <li><b>48 pytest tests</b> checked against published curve values</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>NumPy</span><span>Matplotlib</span><span>pytest</span></div>
+          <div class="links"><a class="link" href="https://github.com/Wahid-y06/protective-relay-scada-simulator" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+        </div>
+        <div class="visual">
+          <div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>permanent_fault.png</span></div><img src="assets/relay-permanent-fault.png" alt="Simulation plot: a permanent 2.5 kA fault beyond the recloser causes three trips and two failed recloses, then lockout, while the substation breaker stays closed" loading="lazy" width="1320" height="840"></div>
+          <p class="caption">Permanent fault → trip, reclose, trip, reclose, trip, lockout. The substation breaker never opens.</p>
+        </div>
+      </article>
+
+      <!-- Serial analyzer -->
+      <article class="card feature flip reveal" id="analyzer">
+        <div class="copy">
+          <div class="meta"><span>02 · FPGA / DIGITAL DESIGN</span><span class="pill">Completed · Nov 2026</span></div>
+          <h3>FPGA Serial Protocol Analyzer</h3>
+          <p>A Verilog logic analyzer that listens to <b style="color:var(--text);font-weight:500">UART, SPI and I2C at the same time</b>, decodes them in hardware, timestamps every event and freezes a capture when something goes wrong.</p>
+          <ul class="points">
+            <li>Decoders with two-flop synchronizers, glitch rejection, all four SPI modes and START/STOP skew protection</li>
+            <li>Block-RAM ring buffer with <b>6 trigger conditions</b> (framing/parity error, I2C NACK, cut-off SPI word, data match)</li>
+            <li>Captures streamed over UART to a Python decoder</li>
+            <li><b>29 cocotb + 9 host tests</b>; DE10-Lite (MAX 10) board wrapper</li>
+          </ul>
+          <div class="tags"><span>Verilog</span><span>cocotb</span><span>Icarus Verilog</span><span>Python</span><span>DE10-Lite</span></div>
+          <div class="links"><a class="link" href="https://github.com/Wahid-y06/fpga-serial-protocol-analyzer" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+        </div>
+        <div class="visual">
+          <div class="terminal"><div class="screen-bar"><i></i><i></i><i></i><span>la_decode.py · sample_capture.bin</span></div><pre><span class="c">   #    time (us)  proto  event</span>
+   0         0.00  <span class="u">UART</span>   0x48 'H'
+   1         5.00  <span class="u">UART</span>   0x69 'i'
+   2         6.86  <span class="s">SPI</span>    MOSI=0x9F MISO=0xEF
+   3         7.44  <span class="i">I2C</span>    START
+   4        16.16  <span class="i">I2C</span>    ADDR 0x50 W  ACK
+<span class="hit">&gt;&gt; 5        25.16  I2C    DATA 0x12  NACK</span>
+   6        26.44  <span class="i">I2C</span>    STOP
+   7        31.40  <span class="u">UART</span>   0x58 'X'
+<span class="p">8 records, trigger at #5</span></pre></div>
+          <div class="blockdiag" aria-label="Pipeline: probe pins, synchronizers, protocol decoders, arbiter with timestamps, capture buffer with trigger, UART to PC"><span class="b">probes</span><span class="arr">→</span><span class="b">sync2</span><span class="arr">→</span><span class="b hl">UART · SPI · I2C</span><span class="arr">→</span><span class="b">timestamp</span><span class="arr">→</span><span class="b hl">ring + trigger</span><span class="arr">→</span><span class="b">PC</span></div>
+          <p class="caption">A real capture from simulation, triggered on the I2C NACK with history from before the trigger.</p>
+        </div>
+      </article>
+
+      <!-- Generator -->
+      <article class="card feature reveal" id="generator">
+        <div class="copy">
+          <div class="meta"><span>03 · MONITORING &amp; ALARMS</span><span class="pill">Completed · Nov 2026</span></div>
+          <h3>Generator Monitoring &amp; Alarm Dashboard</h3>
+          <p>A model of a 500 kVA, 480 V standby generator with a control-panel alarm system that avoids nuisance trips the same way real generator controllers do.</p>
+          <ul class="points">
+            <li>Voltage, frequency, current and winding-temperature response to load steps (governor, AVR and thermal models)</li>
+            <li>Warning/critical alarms with <b>hysteresis and on-delay timers</b>, plus a time-stamped event log</li>
+            <li>Overload, load-rejection and motor-start scenarios with trend dashboards</li>
+            <li><b>34 pytest tests</b>, including a check that sensor noise can't make the alarms chatter</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>Matplotlib</span><span>pytest</span><span>JSON config</span></div>
+          <div class="links"><a class="link" href="https://github.com/Wahid-y06/generator-monitoring-dashboard" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+        </div>
+        <div class="visual">
+          <div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>overload.png</span></div><img src="assets/generator-overload.png" alt="Dashboard trend plot for an overload scenario: current goes critical within 2 seconds while winding temperature slowly rises into warning and critical alarm regions" loading="lazy" width="1320" height="1320" style="max-height:440px;object-fit:cover;object-position:top"></div>
+          <p class="caption">120% overload: current goes critical in 2 s, while the windings take about 200 s to reach their warning limit.</p>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card reveal" id="vibration">
+          <div class="grow">
+            <div class="meta"><span>04 · FPGA / DSP</span><span class="pill wip">In development</span></div>
+            <h3>FPGA Vibration Monitoring System</h3>
+            <p>A fixed-point Verilog pipeline that detects abnormal machine vibration: DC blocker → 4-band biquad filter bank → band energy → severity alarms → VGA diagnostic display.</p>
+            <ul class="points">
+              <li>The whole filter bank shares <b>a single pipelined multiplier</b> (one DSP block)</li>
+              <li>Alarms with hysteresis and persistence; RTL checked against a Python reference model with cocotb</li>
+            </ul>
+            <div class="tags"><span>Verilog</span><span>Python</span><span>cocotb</span><span>VGA</span></div>
+          </div>
+          <div class="viz" aria-hidden="true"><div class="bars"><div style="height:70%"></div><div style="height:55%"></div><div style="height:90%"></div><div style="height:40%"></div><div style="height:62%"></div></div><div class="bar-labels"><span>overall</span><span>1×</span><span>2×</span><span>harm.</span><span>bearing</span></div></div>
+        </article>
+
+        <article class="card reveal" id="motor">
+          <div class="grow">
+            <div class="meta"><span>05 · EMBEDDED / IoT</span><span class="pill">Completed · Sep 2026</span></div>
+            <h3>Motor Condition Monitoring System</h3>
+            <p>Simulated ESP32 firmware that turns vibration and temperature readings into normal / warning / critical conditions, and sends the data to the cloud for analysis.</p>
+            <ul class="points">
+              <li>C++ firmware with threshold-based condition classification</li>
+              <li>Telemetry sent over Wi-Fi/HTTPS to InfluxDB; analyzed with Pandas and Matplotlib</li>
+            </ul>
+            <div class="tags"><span>C++</span><span>ESP32 / Wokwi</span><span>InfluxDB</span><span>Python</span></div>
+          </div>
+          <div class="viz wave" aria-hidden="true"><svg viewBox="0 0 400 70" fill="none"><path d="M0 35H400" stroke="#2b3746" stroke-dasharray="3 7"/><path d="M0 35H22L29 28L36 44L44 22L53 48L62 35H98L108 17L119 54L130 27L139 40L146 35H187L195 30L202 42L210 13L220 58L230 23L240 42L250 35H286L295 25L305 46L315 30L325 35H400" stroke="#c6f36b" stroke-opacity=".18" stroke-width="2"/><path class="trace" d="M0 35H22L29 28L36 44L44 22L53 48L62 35H98L108 17L119 54L130 27L139 40L146 35H187L195 30L202 42L210 13L220 58L230 23L240 42L250 35H286L295 25L305 46L315 30L325 35H400" stroke="url(#wg)" stroke-width="2"/><defs><linearGradient id="wg" x1="0" x2="400" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#c6f36b"/><stop offset="1" stop-color="#5ee1ff"/></linearGradient></defs></svg></div>
+        </article>
+
+        <article class="card reveal" id="vhdl">
+          <div class="grow">
+            <div class="meta"><span>06 · DIGITAL LOGIC</span><span class="pill course">COE328 · Fall 2025</span></div>
+            <h3>VHDL Combinational &amp; Sequential Circuits</h3>
+            <p>Multiplexers, decoders, encoders and a 3-bit Johnson counter in VHDL on Intel Quartus II, checked with waveform simulation and combined with block-diagram designs.</p>
+            <div class="tags"><span>VHDL</span><span>Quartus II</span><span>ModelSim</span></div>
+            <div class="links"><a class="link" href="https://github.com/Wahid-y06/VHDL-Combinational-and-Sequential-Circuits" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+          </div>
+          <div class="viz flow">000 → 100 → 110 → 111 → 011 → 001<small>JOHNSON COUNTER · STATE SEQUENCE</small></div>
+        </article>
+
+        <article class="card reveal" id="relay-tcc">
+          <div class="grow">
+            <div class="meta"><span>01b · COORDINATION STUDY</span><span class="pill">Part of project 01</span></div>
+            <h3>Time–Current Coordination</h3>
+            <p>REC1 clears a fault on its section in 0.27 s, while SUB would take 1.06 s. That 0.80 s margin keeps the substation breaker as backup only.</p>
+          </div>
+          <div class="viz"><div class="screen"><img src="assets/relay-tcc.png" alt="Time-current curves for the recloser and substation relays, showing the coordination margin between them" loading="lazy" width="960" height="780"></div></div>
+        </article>
+      </div>
+
+      <div class="coursework">
+        <article class="card reveal"><div class="meta"><span>COURSEWORK · JAVA / UML</span><span class="pill course">COE528</span></div><h3>Object-Oriented Software Design</h3><p>Java programs planned with UML class models, then implemented, focusing on clear responsibilities and relationships between components.</p></article>
+        <article class="card reveal"><div class="meta"><span>COURSEWORK · C / C++</span><span class="pill course">COE428</span></div><h3>Algorithms &amp; Data Structures</h3><p>Trees, heaps and dynamic tables in C/C++, with attention to runtime complexity and pointer-based memory management.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="section-head reveal"><div><span class="eyebrow">02 · Experience</span><h2 id="experience-title">Engineering<br><span class="grad">as a team.</span></h2></div></div>
+      <div class="timeline">
+        <div class="t-item reveal"><article class="card">
+          <div><span class="eyebrow">Toronto Autonomous Systems Collective</span><h3>Communications &amp; Controls Firmware Lead</h3><span class="t-date">Sep. 2024 – Present · Toronto, ON</span></div>
+          <div><p>Leading hardware–firmware integration for an autonomous robotics platform, from motor control to communications and safety.</p>
+            <ul class="points"><li>Led hardware–firmware integration and validation across controllers and sensors, using a ROS2 control stack on an NVIDIA Jetson AGX; optimized C++ middleware for a <b>500 Hz motor control loop with &lt;10 ms latency</b> and &lt;15% CPU overhead</li><li>Optimized C++ firmware for packetized command, telemetry and motor control using DDS tuning and RViz diagnostics, <b>reducing packet loss by 15%</b> across 30+ hours of field testing</li><li>Developed multi-threaded ROS2 nodes to isolate safety heartbeats using Gazebo simulations, <b>reducing system recovery time by 30%</b></li></ul>
+            <div class="tags"><span>C++</span><span>ROS2</span><span>NVIDIA Jetson AGX</span><span>DDS</span><span>RViz</span><span>Gazebo</span></div></div>
+        </article></div>
+        <div class="t-item reveal"><article class="card">
+          <div><span class="eyebrow">MetRocketry · TMU</span><h3>Seasonal Avionics Engineer</h3><span class="t-date">Jan. 2026 – Mar. 2026 · Toronto, ON</span></div>
+          <div><p>Worked on the avionics side of TMU’s student rocketry team, from CAD design through construction and programming.</p>
+            <ul class="points"><li>Created the rocket design in <b>AutoCAD</b></li><li>Supported the team’s rocket construction and programming work</li><li>Worked with teammates on avionics problems with a focus on safety and reliability</li></ul>
+            <div class="tags"><span>AutoCAD</span><span>Avionics</span><span>Hardware integration</span><span>Teamwork</span></div></div>
+        </article></div>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="reveal">
+        <span class="eyebrow">03 · About</span>
+        <h2 id="about-title">Curious about the<br><span class="grad">whole system.</span></h2>
+        <p>I’m a Computer Engineering student at Toronto Metropolitan University. I like working across the full stack of a system: the signal coming in, the logic or firmware that processes it, and the tools that prove it works.</p>
+        <p>Lately that’s meant FPGA design and verification, and power-system protection. I’m looking for a co-op or internship where I can do this kind of work on real hardware alongside experienced engineers.</p>
+        <div class="edu"><span class="ico">TMU</span><div><strong>B.Eng. Computer Engineering</strong><span>Toronto Metropolitan University · Expected May 2029</span></div></div>
+      </div>
+      <div class="skills reveal" aria-label="Technical skills">
+        <div class="card skill"><h3>Languages <em>/ 01</em></h3><div class="tags"><span>C</span><span>C++</span><span>Python</span><span>Java</span><span>VHDL</span><span>Verilog</span><span>SystemVerilog</span><span>Assembly</span></div></div>
+        <div class="card skill"><h3>Hardware &amp; FPGA <em>/ 02</em></h3><div class="tags"><span>FPGA design</span><span>RTL</span><span>Quartus II</span><span>ModelSim</span><span>cocotb</span><span>Icarus Verilog</span><span>Computer architecture</span><span>PCIe</span></div></div>
+        <div class="card skill"><h3>Embedded &amp; robotics <em>/ 03</em></h3><div class="tags"><span>ROS2</span><span>NVIDIA Jetson AGX</span><span>DDS</span><span>RViz</span><span>Gazebo</span><span>Linux</span><span>Bash</span><span>ESP32</span><span>Wokwi</span><span>InfluxDB</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span></div></div>
+        <div class="card skill"><h3>Software practice <em>/ 04</em></h3><div class="tags"><span>OOP</span><span>UML</span><span>Data structures</span><span>pytest</span><span>Test automation</span><span>CI/CD</span><span>Git</span><span>AutoCAD</span></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="resume" aria-labelledby="resume-title">
+      <div class="card resume-card reveal">
+        <div><span class="eyebrow">04 · Résumé</span><h2 id="resume-title">The one-page version.</h2><p>Education, experience and projects on one page. Download the PDF or read it here.</p></div>
+        <div class="resume-actions"><a class="btn btn-primary" href="assets/Yahya_Wahid_Resume.pdf" download="Yahya_Wahid_Resume.pdf">Download PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></svg></a><button class="btn btn-ghost" id="toggle-resume" hidden>Read it here</button></div>
+      </div>
+      <details class="resume-details" id="resume-details"><summary>Read my résumé</summary>
+        <article class="resume-sheet" id="resume-sheet" aria-label="Yahya Wahid résumé">
+          <h2>Yahya Wahid</h2>
+          <p class="sub">Computer Engineering Student</p>
+          <p class="resume-meta"><a href="tel:+16478071214">647-807-1214</a> | <a href="mailto:yahyavahid2000@gmail.com">yahyavahid2000@gmail.com</a> | <a href="https://www.linkedin.com/in/yahya-wahid-667484321" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://github.com/Wahid-y06" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://wahid-y06.github.io/" target="_blank" rel="noopener noreferrer">Portfolio</a></p>
+
+          <h3>Education</h3>
+          <div class="entry"><h4>Toronto Metropolitan University</h4><span>Toronto, ON</span></div>
+          <div class="entry sub2"><em>Bachelor of Engineering in Computer Engineering</em><span>Expected May 2029</span></div>
+          <p><strong>Relevant Coursework:</strong> Microprocessor Systems, Digital Systems, Algorithms and Data Structures, Object-Oriented Analysis and Design, Signals and Systems, Electronic Circuits</p>
+
+          <h3>Technical Skills</h3>
+          <p><strong>Languages:</strong> C, C++, Python, Java, Verilog, VHDL, SystemVerilog, Assembly<br><strong>Embedded &amp; Robotics:</strong> ROS2, NVIDIA Jetson AGX, DDS, RViz, Gazebo, ESP32, Linux, Bash<br><strong>Hardware &amp; Verification:</strong> FPGA Design, RTL, Quartus II, ModelSim, cocotb, Icarus Verilog, Computer Architecture, PCIe<br><strong>Software &amp; Data:</strong> OOP, UML, Data Structures, pytest, Test Automation, CI/CD, Git, InfluxDB, NumPy, Pandas, Matplotlib, AutoCAD</p>
+
+          <h3>Experience</h3>
+          <div class="entry"><h4>Toronto Autonomous Systems Collective</h4><span>Sep. 2024 – Present</span></div>
+          <div class="entry sub2"><em>Communications &amp; Controls Firmware Lead</em><span>Toronto, ON</span></div>
+          <ul><li>Led hardware–firmware integration and validation across controllers and sensors on a ROS2 control stack running on an NVIDIA Jetson AGX, optimizing C++ middleware for a 500 Hz motor control loop with &lt;10 ms latency and &lt;15% CPU overhead.</li><li>Optimized C++ firmware for packetized command, telemetry, and motor control using DDS tuning and RViz diagnostics, reducing packet loss by 15% across 30+ hours of field testing.</li><li>Developed multi-threaded ROS2 nodes that isolate safety heartbeats, validated in Gazebo simulation, reducing system recovery time by 30%.</li></ul>
+          <div class="entry"><h4>MetRocketry</h4><span>Jan. 2026 – Mar. 2026</span></div>
+          <div class="entry sub2"><em>Seasonal Avionics Engineer</em><span>Toronto, ON</span></div>
+          <ul><li>Created the rocket design in AutoCAD and supported the team’s rocket construction and avionics programming, collaborating on electronic-system solutions focused on safety and reliability.</li></ul>
+
+          <h3>Projects</h3>
+          <div class="entry"><p><strong>FPGA Serial Protocol Analyzer</strong> | <em>Verilog, cocotb, Python, DE10-Lite FPGA</em> | <a href="https://github.com/Wahid-y06/fpga-serial-protocol-analyzer" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Nov. 2026</span></div>
+          <ul><li>Designed a Verilog logic analyzer that decodes UART, SPI (all four modes) and I2C in parallel, with two-flop synchronizers, glitch rejection and a timestamped block-RAM ring buffer.</li><li>Implemented six hardware trigger conditions (framing/parity error, I2C NACK, truncated SPI word, data match) that freeze pre-trigger history for UART readout to a Python decoder; verified with 38 cocotb and host tests.</li></ul>
+          <div class="entry"><p><strong>Protective Relay and SCADA Simulator</strong> | <em>Python, NumPy, pytest</em> | <a href="https://github.com/Wahid-y06/protective-relay-scada-simulator" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Aug. 2026 – Nov. 2026</span></div>
+          <ul><li>Built a feeder protection simulator with IEC 60255 / IEEE C37.112 inverse-time overcurrent (51), instantaneous (50), auto-reclose (79) and breaker-failure (50BF) functions using an integrating trip timer.</li><li>Coordinated recloser and substation relays with a 0.80 s margin so only the nearest device trips; added a SCADA operator console and millisecond event log, verified by 48 pytest tests.</li></ul>
+          <div class="entry"><p><strong>Generator Monitoring and Alarm Dashboard</strong> | <em>Python, Matplotlib, pytest</em> | <a href="https://github.com/Wahid-y06/generator-monitoring-dashboard" target="_blank" rel="noopener noreferrer">GitHub</a></p><span>Aug. 2026 – Nov. 2026</span></div>
+          <ul><li>Modeled a 500 kVA, 480 V standby generator’s voltage, frequency, current and thermal response to load steps, with warning/critical alarms using hysteresis and on-delay timers to prevent nuisance trips; verified with 34 pytest tests.</li></ul>
+          <div class="entry"><p><strong>FPGA Vibration Monitoring System</strong> | <em>Verilog, Python, cocotb</em> | In Development</p><span>Nov. 2026 – Present</span></div>
+          <ul><li>Developing a fixed-point Verilog pipeline (DC blocker, 4-band biquad filter bank on one shared multiplier, band energy) with hysteresis alarms and a VGA display, verified against a Python reference model.</li></ul>
+          <div class="entry"><p><strong>Motor Condition Monitoring System</strong> | <em>C++, ESP32, InfluxDB, Python</em></p><span>Sep. 2026</span></div>
+          <ul><li>Developed C++ ESP32 firmware classifying simulated vibration and temperature readings as normal, warning or critical; streamed telemetry over Wi-Fi/HTTPS to InfluxDB and analyzed trends with Pandas and Matplotlib.</li></ul>
+          <div class="entry"><p><strong>VHDL Combinational and Sequential Circuits</strong> | <em>VHDL, Quartus II, COE328</em></p><span>Fall 2025</span></div>
+          <ul><li>Implemented multiplexers, decoders, encoders and a 3-bit Johnson counter, verifying state transitions through waveform simulation.</li></ul>
+        </article>
+      </details>
+    </section>
+
+    <section class="contact reveal" id="contact" aria-labelledby="contact-title">
+      <span class="eyebrow">05 · Contact</span>
+      <h2 id="contact-title">Let’s build<br><span class="grad">something real.</span></h2>
+      <p>Open to co-op and internship roles in FPGA and digital design, embedded systems, power and utilities, and software engineering.</p>
+      <div class="email-row">
+        <a class="btn btn-primary" href="mailto:yahyavahid2000@gmail.com">yahyavahid2000@gmail.com</a>
+        <button class="btn btn-ghost" id="copy-email" hidden>Copy email</button>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/yahya-wahid-667484321" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+      <span class="sr-only" id="copy-status" role="status"></span>
+    </section>
+  </div>
 </main>
+
 <footer class="wrap footer"><span>© <span id="year">2026</span> Yahya Wahid · Toronto, Canada</span><a href="#hero">Back to top ↑</a></footer>
+
 <script>
-  // Progressive enhancement: all content and links remain usable without JavaScript.
-  const menu = document.getElementById('menu-toggle');
-  const navigation = document.getElementById('navigation');
-  menu.hidden = false;
-  navigation.classList.add('is-collapsed');
-  const closeMenu = () => { navigation.classList.add('is-collapsed'); menu.setAttribute('aria-expanded', 'false'); menu.textContent = 'Menu'; };
-  menu.addEventListener('click', () => { const expanded = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(expanded)); navigation.classList.toggle('is-collapsed', !expanded); menu.textContent = expanded ? 'Close' : 'Menu'; });
-  navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
-  const filters = document.getElementById('filters');
-  filters.hidden = false;
-  filters.addEventListener('click', event => {
-    const button = event.target.closest('[data-filter]');
-    if (!button) return;
-    filters.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    let count = 0;
-    document.querySelectorAll('.project').forEach(project => { const visible = button.dataset.filter === 'all' || project.dataset.category.split(' ').includes(button.dataset.filter); project.hidden = !visible; if (visible) count++; });
-    document.getElementById('filter-status').textContent = `${count} projects shown.`;
-  });
+  document.body.classList.remove('no-js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header state + scroll progress
+  const nav = document.getElementById('nav'), bar = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = `scaleX(${max > 0 ? h.scrollTop / max : 0})`;
+    nav.classList.toggle('scrolled', h.scrollTop > 20);
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Active nav link
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  ['projects', 'experience', 'about', 'resume'].forEach(id => spy.observe(document.getElementById(id)));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Count-up stats
+  const counters = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, end = +el.dataset.count, t0 = performance.now();
+    counters.unobserve(el);
+    if (reduce) return;
+    const tick = t => { const p = Math.min((t - t0) / 1400, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }), { threshold: .6 });
+  document.querySelectorAll('[data-count]').forEach(el => counters.observe(el));
+
+  // Cursor spotlight on cards
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  // Typed role
+  const roles = ['Computer Engineering @ TMU', 'Controls firmware lead', 'FPGA & digital design', 'Embedded & robotics', 'Power-system protection', 'Verification-driven engineering'];
+  const typed = document.getElementById('typed');
+  if (!reduce) {
+    let i = 0, j = roles[0].length, del = true;
+    const step = () => {
+      const w = roles[i];
+      j += del ? -1 : 1;
+      typed.textContent = w.slice(0, j);
+      let wait = del ? 28 : 55;
+      if (!del && j === w.length) { del = true; wait = 2200; }
+      else if (del && j === 0) { del = false; i = (i + 1) % roles.length; j = 0; wait = 300; }
+      setTimeout(step, wait);
+    };
+    setTimeout(step, 2600);
+  }
+
+  // Marquee: duplicate content for a seamless loop
+  const mq = document.getElementById('marquee'); mq.innerHTML += mq.innerHTML;
+
+  // Oscilloscope background
+  const cv = document.getElementById('scope'), ctx = cv.getContext('2d');
+  let W, H, dpr;
+  const size = () => { dpr = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  size(); addEventListener('resize', size);
+  const traces = [
+    { c: 'rgba(198,243,107,', a: 26, f: .010, s: .9, y: .62 },
+    { c: 'rgba(94,225,255,', a: 18, f: .016, s: -.6, y: .68 },
+    { c: 'rgba(198,243,107,', a: 10, f: .028, s: 1.4, y: .74 }
+  ];
+  let t = 0, visible = true;
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(cv);
+  const draw = () => {
+    if (visible) {
+      ctx.clearRect(0, 0, W, H);
+      traces.forEach((tr, k) => {
+        ctx.beginPath();
+        for (let x = 0; x <= W; x += 3) {
+          const burst = Math.exp(-Math.pow(((x / W) * 4 - ((t * .004 + k * .7) % 5)) , 2) * 3);
+          const y = H * tr.y + Math.sin(x * tr.f + t * .02 * tr.s) * tr.a * (1 + burst * 2.4) + Math.sin(x * tr.f * 3.1 + t * .03) * tr.a * .25;
+          x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+        }
+        ctx.strokeStyle = tr.c + (k ? .35 : .6) + ')';
+        ctx.lineWidth = k ? 1 : 1.6;
+        ctx.shadowColor = tr.c + '.8)'; ctx.shadowBlur = k ? 0 : 12;
+        ctx.stroke();
+      });
+      t++;
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  };
+  draw();
+
+  // Portrait fallback
   const portrait = document.getElementById('portrait');
   portrait.addEventListener('error', () => { portrait.hidden = true; });
   if (portrait.complete && !portrait.naturalWidth) portrait.hidden = true;
+
+  // Copy email
   const copyButton = document.getElementById('copy-email');
   if (navigator.clipboard && window.isSecureContext) {
     copyButton.hidden = false;
     copyButton.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText('yahyavahid2000@gmail.com'); copyButton.textContent = 'Copied!'; document.getElementById('copy-status').textContent = 'Email address copied.'; }
-      catch { document.getElementById('copy-status').textContent = 'Copy unavailable. Select the email address above to copy it.'; copyButton.textContent = 'Select email to copy'; }
-      setTimeout(() => { copyButton.textContent = 'Copy email'; }, 2500);
+      try { await navigator.clipboard.writeText('yahyavahid2000@gmail.com'); copyButton.textContent = 'Copied ✓'; document.getElementById('copy-status').textContent = 'Email address copied.'; }
+      catch { copyButton.textContent = 'Copy unavailable'; }
+      setTimeout(() => { copyButton.textContent = 'Copy email'; }, 2200);
     });
   }
+
+  // Résumé: print + toggle
   const resume = document.getElementById('resume-details');
-  const printButton = document.getElementById('print-resume');
-  printButton.hidden = false;
-  let resumeWasOpen = false;
-  window.addEventListener('beforeprint', () => { resumeWasOpen = resume.open; resume.open = true; });
-  window.addEventListener('afterprint', () => { resume.open = resumeWasOpen; });
-  printButton.addEventListener('click', () => window.print());
+  const toggle = document.getElementById('toggle-resume');
+  toggle.hidden = false;
+  let wasOpen = false;
+  addEventListener('beforeprint', () => { wasOpen = resume.open; resume.open = true; });
+  addEventListener('afterprint', () => { resume.open = wasOpen; });
+  const syncToggle = () => { toggle.textContent = resume.open ? 'Hide résumé' : 'Read it here'; };
+  toggle.addEventListener('click', () => { resume.open = !resume.open; if (resume.open) resume.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); });
+  resume.addEventListener('toggle', syncToggle);
+
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
-
